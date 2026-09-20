@@ -1,5 +1,4 @@
 pymupdf
-pdfplumber
 pypdf
 langchain-core
 google-genai

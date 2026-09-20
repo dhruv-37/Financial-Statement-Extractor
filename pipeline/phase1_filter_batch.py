@@ -50,7 +50,7 @@ Public API
 
 Dependencies
 ------------
-    pip install pdfplumber pypdf rapidfuzz langchain-core
+    pip install pymupdf pypdf rapidfuzz langchain-core
 """
 
 from __future__ import annotations
@@ -63,10 +63,10 @@ from pathlib import Path
 from langchain_core.tools import tool
 
 try:
-    import pdfplumber
+    import fitz  # PyMuPDF
 except ImportError as e:
     raise ImportError(
-        "pdfplumber not found. Run: pip install pdfplumber"
+        "pymupdf not found. Run: pip install pymupdf"
     ) from e
 
 try:
@@ -361,12 +361,14 @@ def extract_auditor_signatures(
     dropped: list[dict] = []
     current_section = "Unknown Section"
 
-    with pdfplumber.open(str(path)) as pdf:
-        total = len(pdf.pages)
+    doc = fitz.open(str(path))
+    try:
+        total = len(doc)
         log.info("  Total pages: %d", total)
 
-        for page_num, page in enumerate(pdf.pages, start=1):
-            text = page.extract_text() or ""
+        for idx in range(total):
+            page_num = idx + 1
+            text = doc[idx].get_text("text") or ""
             page_texts[page_num] = text
             if not text.strip():
                 continue
@@ -391,6 +393,8 @@ def extract_auditor_signatures(
                 "blocks":      blocks,
                 "text":        text,
             })
+    finally:
+        doc.close()
 
     # ── Pass 2: Stage 3 — look-back density only ────────────────────────────
     #
