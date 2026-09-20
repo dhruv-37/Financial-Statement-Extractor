@@ -8,35 +8,74 @@ caller-supplied Gemini API key, with strict cleanup:
 - All intermediate files (uploaded PDF, trimmed PDF, xlsx, taxonomy json,
   the two Gemini SQLite caches) live in a per-request temp directory that
   is deleted unconditionally in a `finally` block.
-- The finished .xlsx is read into memory BEFORE the temp directory is
-  deleted, so nothing lingers on disk after the response is prepared.
+- The finished zip (trimmed PDF + xlsx) is built in memory BEFORE the temp
+  directory is deleted, so nothing lingers on disk after the response is
+  prepared.
+
+Progress reporting: `progress_cb(percent, message)` is called at each real
+stage boundary — these are actual completed steps, not a time-based fake
+animation. Pass a no-op lambda if you don't need progress.
 """
-
-
-
 from __future__ import annotations
+
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import io
-import os
 import shutil
 import tempfile
+import threading
+import zipfile
 from pathlib import Path
+from typing import Callable
 
 from pipeline.Step1 import extract_core_financial_statements
 from pipeline.Step2 import extract_financials
+import summary as owner_summary
 
 MAX_UPLOAD_BYTES = 40 * 1024 * 1024  # 40 MB
+
+ProgressCB = Callable[[int, str], None]
+SummaryCB = Callable[[list | None], None]
 
 
 class PipelineError(Exception):
     pass
 
 
-def run(pdf_bytes: bytes, ticker: str, api_key: str) -> tuple[bytes, str]:
+def _noop(_pct: int, _msg: str) -> None:
+    pass
+
+
+def _noop_summary(_bullets) -> None:
+    pass
+
+
+def _generate_summary_bg(trimmed_pdf_path: str, summary_cb: SummaryCB) -> None:
+    """Runs in a background thread, uses the SITE OWNER'S key (never the
+    visitor's), and never raises — worst case it calls back with None."""
+    try:
+        import fitz
+        doc = fitz.open(trimmed_pdf_path)
+        text = "\n".join(doc[i].get_text("text") for i in range(len(doc)))
+        doc.close()
+        bullets = owner_summary.generate(text)
+    except Exception:  # noqa: BLE001
+        bullets = None
+    summary_cb(bullets)
+
+
+def run(
+    pdf_bytes: bytes,
+    ticker: str,
+    api_key: str,
+    progress_cb: ProgressCB = _noop,
+    summary_cb: SummaryCB = _noop_summary,
+) -> tuple[bytes, str]:
     """
-    Returns (xlsx_bytes, filename). Raises PipelineError on any failure.
-    Guaranteed not to leave files or the api_key behind, success or failure.
+    Returns (zip_bytes, filename) — the zip contains both the trimmed PDF
+    and the finished .xlsx. Raises PipelineError on any failure. Guaranteed
+    not to leave files or the api_key behind, success or failure.
     """
     if not pdf_bytes[:4] == b"%PDF":
         raise PipelineError("That file doesn't look like a PDF.")
@@ -53,6 +92,7 @@ def run(pdf_bytes: bytes, ticker: str, api_key: str) -> tuple[bytes, str]:
         trimmed_pdf = os.path.join(tmpdir, f"{safe_ticker}_trimmed.pdf")
         output_xlsx = os.path.join(tmpdir, f"{safe_ticker}.xlsx")
 
+        progress_cb(3, "Saving upload…")
         with open(src_pdf, "wb") as f:
             f.write(pdf_bytes)
 
@@ -64,13 +104,26 @@ def run(pdf_bytes: bytes, ticker: str, api_key: str) -> tuple[bytes, str]:
         cachelite_path = os.path.join(tmpdir, "gemini_cachelite.sqlite3")
 
         try:
+            progress_cb(10, "Scanning pages for the auditor's signature…")
             extract_core_financial_statements(
                 src_pdf, trimmed_pdf, api_key,
                 use_cachelite=True, cachelite_path=cachelite_path,
             )
+            progress_cb(55, "Statements found — parsing figures with Gemini…")
+
+            # Bonus "quick take" using the OWNER's key, in parallel with the
+            # real extraction below (which uses the VISITOR's key) — never
+            # allowed to slow down or fail the paid part.
+            summary_thread = threading.Thread(
+                target=_generate_summary_bg, args=(trimmed_pdf, summary_cb), daemon=True,
+            )
+            summary_thread.start()
+
             extract_financials(
                 trimmed_pdf, output_xlsx, api_key=api_key,
             )
+            progress_cb(90, "Building workbook…")
+            summary_thread.join(timeout=20)  # don't let a slow bonus call hold up finishing
         except Exception as exc:  # noqa: BLE001
             # Never let a raw exception (which could echo request internals)
             # bubble to the browser; log server-side only, message must not
@@ -81,9 +134,31 @@ def run(pdf_bytes: bytes, ticker: str, api_key: str) -> tuple[bytes, str]:
 
         if not os.path.exists(output_xlsx):
             raise PipelineError("Pipeline finished but produced no output — try again.")
+        if not os.path.exists(trimmed_pdf):
+            raise PipelineError("Pipeline finished but the trimmed PDF is missing — try again.")
 
-        xlsx_bytes = Path(output_xlsx).read_bytes()
-        return xlsx_bytes, f"{safe_ticker}.xlsx"
+        zip_buf = io.BytesIO()
+        with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zf:
+            zf.write(output_xlsx, arcname=f"{safe_ticker}.xlsx")
+            zf.write(trimmed_pdf, arcname=f"{safe_ticker}_trimmed.pdf")
+        zip_bytes = zip_buf.getvalue()
+
+        # Verify before ever handing this back — a silently-empty or
+        # truncated zip must surface as a clear error, never as a "success"
+        # that downloads nothing.
+        with zipfile.ZipFile(io.BytesIO(zip_bytes)) as check_zf:
+            bad_entry = check_zf.testzip()
+            if bad_entry is not None:
+                raise PipelineError(f"Built zip is corrupt (bad entry: {bad_entry}) — try again.")
+            names = set(check_zf.namelist())
+            expected = {f"{safe_ticker}.xlsx", f"{safe_ticker}_trimmed.pdf"}
+            if names != expected:
+                raise PipelineError(
+                    f"Built zip is missing expected files (found: {sorted(names) or 'none'}) — try again."
+                )
+
+        progress_cb(100, "Done.")
+        return zip_bytes, f"{safe_ticker}.zip"
 
     finally:
         shutil.rmtree(tmpdir, ignore_errors=True)

@@ -31,6 +31,11 @@ CREATE TABLE IF NOT EXISTS access_codes (
     created_at  REAL NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
+
+CREATE TABLE IF NOT EXISTS feature_state (
+    key    TEXT PRIMARY KEY,
+    value  TEXT NOT NULL
+);
 """
 
 
@@ -104,3 +109,21 @@ def code_is_valid(code: str) -> bool:
 def _generate_code() -> str:
     # 26 chars of base32-ish urlsafe randomness -> effectively unguessable.
     return "AR-" + secrets.token_urlsafe(20).replace("_", "").replace("-", "")[:26].upper()
+
+
+def get_summary_lock() -> float:
+    """Epoch timestamp until which the owner-key summary feature is locked. 0 = not locked."""
+    with _conn() as c:
+        row = c.execute(
+            "SELECT value FROM feature_state WHERE key = 'summary_locked_until'"
+        ).fetchone()
+        return float(row[0]) if row else 0.0
+
+
+def set_summary_lock(until_epoch: float) -> None:
+    with _conn() as c:
+        c.execute(
+            "INSERT INTO feature_state (key, value) VALUES ('summary_locked_until', ?) "
+            "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+            (str(until_epoch),),
+        )

@@ -47,9 +47,27 @@
       Extract financials
     </button>
 
-    <div id="status" class="text-sm text-[#8B93A0] hidden"></div>
+    <div id="progressWrap" class="hidden">
+      <div class="flex justify-between text-xs text-[#8B93A0] mb-1.5">
+        <span id="statusText">Starting…</span>
+        <span id="percentText" class="font-mono">0%</span>
+      </div>
+      <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+        <div id="progressBar" class="h-full bg-[#C9A227] transition-[width] duration-500 ease-out" style="width:0%"></div>
+      </div>
+    </div>
+
     <div id="errBox" class="text-sm text-red-400 hidden"></div>
+
+    <div id="summaryCard" class="hidden rounded-md border border-[#C9A227]/30 bg-[#C9A227]/[0.06] p-4">
+      <p class="text-xs uppercase tracking-wide text-[#C9A227] mb-2">While we crunch the numbers — a quick take</p>
+      <ul id="summaryList" class="space-y-1.5 text-sm text-[#C7CBD1] list-disc list-inside"></ul>
+    </div>
   </form>
+
+  <p class="mt-6 text-xs text-[#8B93A0]">
+    Download is a .zip containing the finished workbook and the trimmed PDF (just the financial-statement pages) — handy for cross-checking figures against the source.
+  </p>
 </section>
 
 <script>
@@ -66,41 +84,69 @@ document.getElementById('pdfInput').addEventListener('change', (e) => {
   document.getElementById('fileLabel').textContent = f ? f.name : 'Click to choose a PDF (max 40 MB)';
 });
 
+function setProgress(pct, msg) {
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('percentText').textContent = pct + '%';
+  document.getElementById('statusText').textContent = msg;
+}
+
+async function pollStatus(jobId) {
+  let summaryShown = false;
+  while (true) {
+    await new Promise(r => setTimeout(r, 1200));
+    const res = await fetch(`/tool/status/${jobId}`);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'Lost track of the job.');
+    setProgress(data.percent, data.message);
+
+    if (!summaryShown && data.summary_ready && data.summary && data.summary.length) {
+      summaryShown = true;
+      const list = document.getElementById('summaryList');
+      list.innerHTML = '';
+      data.summary.forEach(line => {
+        const li = document.createElement('li');
+        li.textContent = line;
+        list.appendChild(li);
+      });
+      document.getElementById('summaryCard').classList.remove('hidden');
+    }
+
+    if (data.done) {
+      if (data.error) throw new Error(data.error);
+      return;
+    }
+  }
+}
+
 document.getElementById('runForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('runBtn');
-  const status = document.getElementById('status');
+  const progressWrap = document.getElementById('progressWrap');
   const errBox = document.getElementById('errBox');
   errBox.classList.add('hidden');
-  status.classList.remove('hidden');
-  status.textContent = "Reading auditor's signature pages…";
+  document.getElementById('summaryCard').classList.add('hidden');
+  progressWrap.classList.remove('hidden');
+  setProgress(0, 'Starting…');
   btn.disabled = true;
   btn.classList.add('opacity-60', 'cursor-not-allowed');
 
-  const stages = [
-    "Reading auditor's signature pages…",
-    "Classifying financial statements…",
-    "Parsing figures into the workbook…",
-  ];
-  let stageIdx = 0;
-  const stageTimer = setInterval(() => {
-    stageIdx = Math.min(stageIdx + 1, stages.length - 1);
-    status.textContent = stages[stageIdx];
-  }, 12000);
-
   try {
     const form = new FormData(e.target);
-    const res = await fetch("{{ url_for('tool_run') }}", { method: "POST", body: form });
+    const startRes = await fetch("{{ url_for('tool_run') }}", { method: "POST", body: form });
+    const startData = await startRes.json();
+    if (!startRes.ok || !startData.ok) throw new Error(startData.error || 'Could not start.');
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.error || "Something went wrong.");
+    await pollStatus(startData.job_id);
+
+    const dlRes = await fetch(`/tool/result/${startData.job_id}`);
+    if (!dlRes.ok) {
+      const data = await dlRes.json().catch(() => ({}));
+      throw new Error(data.error || 'Could not fetch the result.');
     }
-
-    const blob = await res.blob();
-    const disposition = res.headers.get('Content-Disposition') || '';
+    const blob = await dlRes.blob();
+    const disposition = dlRes.headers.get('Content-Disposition') || '';
     const match = disposition.match(/filename="?([^"]+)"?/);
-    const filename = match ? match[1] : 'report.xlsx';
+    const filename = match ? match[1] : 'report.zip';
 
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -108,14 +154,13 @@ document.getElementById('runForm').addEventListener('submit', async (e) => {
     document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(url);
 
-    status.textContent = "Done — your download has started.";
+    setProgress(100, 'Done — your download has started.');
     document.getElementById('apiKey').value = "";
   } catch (err) {
     errBox.textContent = err.message;
     errBox.classList.remove('hidden');
-    status.classList.add('hidden');
+    progressWrap.classList.add('hidden');
   } finally {
-    clearInterval(stageTimer);
     btn.disabled = false;
     btn.classList.remove('opacity-60', 'cursor-not-allowed');
   }

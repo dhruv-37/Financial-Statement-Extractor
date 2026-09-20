@@ -83,6 +83,32 @@ Switch the Razorpay dashboard from Test to Live mode, swap in live keys,
 set `FLASK_ENV=production` (this turns on `Secure` cookies — only do this
 once you're actually serving over HTTPS).
 
+## 8. Optional: the "quick take" bonus summary
+While a visitor's report processes, the tool can show 3 AI-written bullets
+summarising the year's results — generated with **your own** Gemini key
+(`OWNER_GEMINI_API_KEY` in `.env`), not the visitor's. It's entirely
+optional: leave the variable blank and the feature just doesn't appear.
+
+It's designed to never cost you much or break anything:
+- Uses `gemini-2.5-flash-lite` on a ~15k-character excerpt — a small, cheap call.
+- Runs in a background thread *in parallel* with the visitor's own paid
+  extraction, so it can't slow that down. If it's still running when the
+  main job finishes, it's simply skipped for that report (20s cap).
+- If your key hits its daily free-tier quota, `webapp/summary.py` catches
+  the 429/RESOURCE_EXHAUSTED error, reads Google's own `retryDelay` if
+  given (otherwise assumes 24h), and stores a lock timestamp in the shared
+  sqlite db. Every call after that checks the timestamp first and skips
+  instantly — no wasted requests, no visible error to anyone. The moment
+  the timestamp passes, it starts working again automatically, no restart
+  or code change needed.
+
+## 9. Free preview (no key, no payment)
+`/preview` runs *only* the pure regex/PyMuPDF signature-detection step
+(`pipeline/phase1_filter_batch.py`) — there is no Gemini call in that route
+at all, so it's free to run for any visitor and needs no key from anyone.
+It shows how many candidate financial-statement pages were found and a
+sample, as proof the tool works, before asking for payment + a key.
+
 ## Security checklist (what "no leakage" means here)
 - [x] Gemini API key: request-scoped variable only. Never logged, never in
       a cookie/session/DB, deleted (`del`) right after use. A fresh

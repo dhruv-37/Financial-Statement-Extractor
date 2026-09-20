@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="max-w-xl mx-auto px-6 py-16">
+  <h1 class="font-display text-3xl">Try it free — no key, no payment</h1>
+  <p class="mt-2 text-sm text-[#8B93A0]">
+    This runs the page-finding step only (pure pattern matching, no AI) so you can see it
+    locate the right pages before deciding to pay. The full workbook needs
+    <a href="{{ url_for('landing') }}" class="underline decoration-white/20 hover:text-[#E6E8EB]">a one-time payment</a> and your own Gemini key.
+  </p>
+
+  <form id="previewForm" class="mt-8 space-y-4">
+    <label for="pdfInput"
+      class="field rounded-md px-4 py-8 w-full flex flex-col items-center justify-center gap-2 cursor-pointer border-dashed hover:border-white/30">
+      <span id="fileLabel" class="text-sm text-[#8B93A0]">Click to choose a PDF (max 40 MB)</span>
+    </label>
+    <input id="pdfInput" type="file" name="pdf" accept="application/pdf" required class="hidden">
+    <button id="runBtn" type="submit" class="btn-gold rounded-md px-5 py-3 w-full">Find the financial statements</button>
+    <p id="statusText" class="text-sm text-[#8B93A0] hidden"></p>
+    <p id="errBox" class="text-sm text-red-400 hidden"></p>
+  </form>
+
+  <div id="resultCard" class="hidden mt-8 rounded-lg border border-white/10 bg-[#12151B] p-6">
+    <p class="text-sm text-[#C7CBD1]">
+      Found <span id="pageCount" class="text-[#C9A227] font-semibold"></span> candidate pages across:
+    </p>
+    <p id="sectionsLine" class="mt-1 text-sm text-[#8B93A0]"></p>
+    <table class="w-full text-sm font-mono mt-4">
+      <tbody id="sampleRows" class="text-[#C7CBD1]"></tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+document.getElementById('pdfInput').addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  document.getElementById('fileLabel').textContent = f ? f.name : 'Click to choose a PDF (max 40 MB)';
+});
+
+document.getElementById('previewForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('runBtn');
+  const status = document.getElementById('statusText');
+  const errBox = document.getElementById('errBox');
+  const resultCard = document.getElementById('resultCard');
+  errBox.classList.add('hidden');
+  resultCard.classList.add('hidden');
+  status.classList.remove('hidden');
+  status.textContent = 'Scanning pages…';
+  btn.disabled = true;
+  btn.classList.add('opacity-60', 'cursor-not-allowed');
+
+  try {
+    const form = new FormData(e.target);
+    const res = await fetch("{{ url_for('preview_run') }}", { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Something went wrong.');
+
+    status.classList.add('hidden');
+    document.getElementById('pageCount').textContent = data.candidate_pages;
+    document.getElementById('sectionsLine').textContent = data.sections_found.join(' · ') || 'no sections identified';
+    const rows = document.getElementById('sampleRows');
+    rows.innerHTML = '';
+    data.sample.forEach(row => {
+      const tr = document.createElement('tr');
+      tr.className = 'border-b border-white/5';
+      tr.innerHTML = `<td class="py-1.5">Page ${row.page_number}</td><td class="text-right text-[#8B93A0]">${row.section}</td>`;
+      rows.appendChild(tr);
+    });
+    resultCard.classList.remove('hidden');
+  } catch (err) {
+    status.classList.add('hidden');
+    errBox.textContent = err.message;
+    errBox.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('opacity-60', 'cursor-not-allowed');
+  }
+});
+</script>
+{% endblock %}

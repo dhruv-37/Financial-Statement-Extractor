@@ -20,16 +20,20 @@ a Gemini key, never payment secrets.
 from __future__ import annotations
 
 import os
+import io
+import time
+import uuid
 import logging
+import threading
 from flask import (
     Flask, render_template, request, session, redirect,
     url_for, jsonify, send_file, abort,
 )
-import io
 
 import store
 import payments
 from pipeline_runner import run as run_pipeline, PipelineError
+from pipeline.phase1_filter_batch import extract_auditor_signatures
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("arx")
@@ -48,6 +52,33 @@ app.config.update(
 
 PRICE_INR = int(os.environ.get("PRICE_INR", "499"))
 APP_NAME = os.environ.get("APP_NAME", "Annual Report Extractor")
+
+# In-memory job registry for progress polling. Fine for a single-process
+# server (dev, or gunicorn -w 1). If you scale to multiple gunicorn workers
+# later, this needs to move to something shared (e.g. Redis) — a poll for
+# job X could otherwise hit a worker that never ran job X.
+_jobs: dict[str, dict] = {}
+_jobs_lock = threading.Lock()
+_JOB_TTL_SECONDS = 30 * 60
+
+
+def _set_job(job_id: str, **fields) -> None:
+    with _jobs_lock:
+        _jobs.setdefault(job_id, {}).update(fields)
+
+
+def _get_job(job_id: str) -> dict | None:
+    with _jobs_lock:
+        job = _jobs.get(job_id)
+        return dict(job) if job else None
+
+
+def _prune_old_jobs() -> None:
+    cutoff = time.time() - _JOB_TTL_SECONDS
+    with _jobs_lock:
+        stale = [jid for jid, j in _jobs.items() if j.get("created_at", 0) < cutoff]
+        for jid in stale:
+            _jobs.pop(jid, None)
 
 
 # ── access control ────────────────────────────────────────────────────────
@@ -72,6 +103,60 @@ def landing():
         razorpay_key_id=payments.KEY_ID,
         has_access=_has_access(),
     )
+
+
+@app.route("/preview")
+def preview():
+    return render_template("preview.html", app_name=APP_NAME, has_access=_has_access())
+
+
+@app.post("/preview/run")
+def preview_run():
+    """
+    Free, no key, no payment. Runs ONLY the pure regex/PyMuPDF signature
+    detection (pipeline/phase1_filter_batch.py) — there is no Gemini call
+    anywhere in this route, so it costs nothing per visitor and needs no key
+    from anyone. Shows what the tool found; the actual Excel/PDF output
+    still requires payment + the visitor's own Gemini key.
+    """
+    import tempfile, os as _os
+
+    uploaded = request.files.get("pdf")
+    if uploaded is None or uploaded.filename == "":
+        return jsonify({"ok": False, "error": "Please choose a PDF file."}), 400
+    if not uploaded.filename.lower().endswith(".pdf"):
+        return jsonify({"ok": False, "error": "Only PDF files are accepted."}), 400
+
+    pdf_bytes = uploaded.read()
+    if pdf_bytes[:4] != b"%PDF":
+        return jsonify({"ok": False, "error": "That file doesn't look like a PDF."}), 400
+    if len(pdf_bytes) > 40 * 1024 * 1024:
+        return jsonify({"ok": False, "error": "File too large (max 40 MB)."}), 400
+
+    tmp_path = None
+    try:
+        fd, tmp_path = tempfile.mkstemp(suffix=".pdf")
+        with _os.fdopen(fd, "wb") as f:
+            f.write(pdf_bytes)
+
+        results = extract_auditor_signatures(tmp_path, no_pdf=True)
+        sections = sorted({r["section"] for r in results if r.get("section")})
+        sample = [
+            {"page_number": r["page_number"], "section": r.get("section") or "Unknown"}
+            for r in sorted(results, key=lambda r: r["page_number"])[:8]
+        ]
+        return jsonify({
+            "ok": True,
+            "candidate_pages": len(results),
+            "sections_found": sections,
+            "sample": sample,
+        })
+    except Exception as exc:  # noqa: BLE001
+        log.exception("Preview failed")
+        return jsonify({"ok": False, "error": "Could not process that PDF."}), 400
+    finally:
+        if tmp_path and _os.path.exists(tmp_path):
+            _os.remove(tmp_path)
 
 
 @app.route("/redeem", methods=["GET", "POST"])
@@ -99,6 +184,7 @@ def logout():
     session.clear()
     return redirect(url_for("landing"))
 
+
 @app.route("/dev-unlock")
 def dev_unlock():
     # Local development only — grants access without payment.
@@ -109,6 +195,7 @@ def dev_unlock():
     session["paid"] = True
     session["access_code"] = "DEV-BYPASS"
     return redirect(url_for("tool"))
+
 
 # ── payment API ──────────────────────────────────────────────────────────
 
@@ -170,12 +257,34 @@ def webhook_razorpay():
     return jsonify({"ok": True})
 
 
-# ── the actual tool ─────────────────────────────────────────────────────
+# ── the actual tool (async job + progress polling) ──────────────────────
+
+def _run_job(job_id: str, pdf_bytes: bytes, ticker: str, api_key: str) -> None:
+    def progress_cb(pct: int, message: str) -> None:
+        _set_job(job_id, percent=pct, message=message)
+
+    def summary_cb(bullets) -> None:
+        _set_job(job_id, summary=bullets, summary_ready=True)
+
+    try:
+        zip_bytes, filename = run_pipeline(
+            pdf_bytes, ticker, api_key,
+            progress_cb=progress_cb, summary_cb=summary_cb,
+        )
+        _set_job(job_id, done=True, error=None, result=zip_bytes, filename=filename, percent=100)
+    except PipelineError as exc:
+        _set_job(job_id, done=True, error=str(exc), result=None)
+    except Exception:  # noqa: BLE001
+        log.exception("Unhandled error in job %s", job_id)
+        _set_job(job_id, done=True, error="Unexpected server error — try again.", result=None)
+
 
 @app.post("/tool/run")
 def tool_run():
     if not _has_access():
         return jsonify({"ok": False, "error": "Access required."}), 403
+
+    _prune_old_jobs()
 
     uploaded = request.files.get("pdf")
     ticker = (request.form.get("ticker") or "REPORT").strip()
@@ -187,26 +296,63 @@ def tool_run():
         return jsonify({"ok": False, "error": "Only PDF files are accepted."}), 400
 
     pdf_bytes = uploaded.read()
+    job_id = uuid.uuid4().hex
 
-    try:
-        xlsx_bytes, filename = run_pipeline(pdf_bytes, ticker, api_key)
-    except PipelineError as exc:
-        return jsonify({"ok": False, "error": str(exc)}), 400
-    finally:
-        # Explicitly drop references — the request-scoped variables holding
-        # the key and the PDF bytes are not reused past this point.
-        api_key = None
-        pdf_bytes = None
+    _set_job(job_id, percent=0, message="Queued…", done=False, error=None,
+              result=None, summary=None, summary_ready=False, created_at=time.time())
+
+    thread = threading.Thread(
+        target=_run_job, args=(job_id, pdf_bytes, ticker, api_key), daemon=True,
+    )
+    thread.start()
+    # pdf_bytes/api_key now only live inside the thread's stack frame and are
+    # dropped by pipeline_runner.run() itself when the job finishes.
+    return jsonify({"ok": True, "job_id": job_id})
+
+
+@app.get("/tool/status/<job_id>")
+def tool_status(job_id):
+    if not _has_access():
+        return jsonify({"ok": False, "error": "Access required."}), 403
+    job = _get_job(job_id)
+    if job is None:
+        return jsonify({"ok": False, "error": "Unknown or expired job."}), 404
+    return jsonify({
+        "ok": True,
+        "percent": job.get("percent", 0),
+        "message": job.get("message", ""),
+        "done": job.get("done", False),
+        "error": job.get("error"),
+        "summary_ready": job.get("summary_ready", False),
+        "summary": job.get("summary"),
+    })
+
+
+@app.get("/tool/result/<job_id>")
+def tool_result(job_id):
+    if not _has_access():
+        return jsonify({"ok": False, "error": "Access required."}), 403
+    job = _get_job(job_id)
+    if job is None or not job.get("done") or job.get("error") or job.get("result") is None:
+        return jsonify({"ok": False, "error": "Result not ready."}), 400
+
+    zip_bytes = job["result"]
+    filename = job["filename"]
+    # Deliberately NOT deleted here — a refresh, back button, or a duplicate
+    # fetch (as seen from real logs) must not turn a real download into an
+    # error. It's cleaned up later by _prune_old_jobs()'s TTL instead.
 
     return send_file(
-        io.BytesIO(xlsx_bytes),
+        io.BytesIO(zip_bytes),
         as_attachment=True,
         download_name=filename,
-        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        mimetype="application/zip",
     )
 
 
 if __name__ == "__main__":
     # Local dev only. In production run behind gunicorn (see README_DEPLOY.md)
     # with debug=False so tracebacks are never shown to visitors.
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
+    # threaded=True so the progress-polling requests aren't blocked behind
+    # the background extraction thread on the dev server.
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False, threaded=True)
