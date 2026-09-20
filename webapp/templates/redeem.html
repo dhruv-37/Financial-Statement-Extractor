@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="max-w-sm mx-auto px-6 py-24">
+  <h1 class="font-display text-2xl">Enter your access code</h1>
+  <p class="mt-2 text-sm text-[#8B93A0]">Shown to you right after payment. Case-insensitive.</p>
+
+  <form method="POST" class="mt-8 space-y-4">
+    <input
+      type="text" name="code" required autofocus autocomplete="off"
+      placeholder="AR-XXXXXXXXXXXXXXXXXXXXXXXX"
+      class="field font-mono rounded-md px-4 py-3 w-full placeholder:text-[#5A606B]">
+    {% if error %}
+      <p class="text-sm text-red-400">{{ error }}</p>
+    {% endif %}
+    <button type="submit" class="btn-gold rounded-md px-5 py-3 w-full">Unlock</button>
+  </form>
+
+  <p class="mt-6 text-sm text-[#8B93A0]">
+    No code yet? <a href="{{ url_for('landing') }}" class="underline decoration-white/20 hover:text-[#E6E8EB]">Get access</a>
+  </p>
+</section>
+{% endblock %}

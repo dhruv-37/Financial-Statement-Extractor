@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ app_name }}{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background:#0E1116; color:#E6E8EB; }
+  .font-display { font-family: 'Lora', Georgia, serif; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+  ::selection { background:#C9A227; color:#0E1116; }
+  .ledger-rule { border-top:1px solid rgba(230,232,235,0.10); }
+  .btn-gold {
+    background:#C9A227; color:#12141A; font-weight:600;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn-gold:hover { background:#DDB63A; transform:translateY(-1px); box-shadow:0 8px 24px -8px rgba(201,162,39,0.5); }
+  .btn-gold:active { transform:translateY(0); }
+  .btn-ghost {
+    border:1px solid rgba(230,232,235,0.18); color:#E6E8EB;
+    transition: border-color .12s ease, background .12s ease;
+  }
+  .btn-ghost:hover { border-color:rgba(230,232,235,0.4); background:rgba(230,232,235,0.04); }
+  input:focus, button:focus-visible, a:focus-visible {
+    outline: 2px solid #C9A227; outline-offset: 2px;
+  }
+  .field {
+    background:#12151B; border:1px solid rgba(230,232,235,0.14);
+    color:#E6E8EB;
+  }
+  .field:focus { border-color:#C9A227; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<header class="border-b border-white/10">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="{{ url_for('landing') }}" class="font-display text-lg tracking-tight text-[#E6E8EB]">
+      {{ app_name }}
+    </a>
+    <nav class="flex items-center gap-6 text-sm text-[#8B93A0]">
+      {% if has_access %}
+        <a href="{{ url_for('tool') }}" class="hover:text-[#E6E8EB]">Open tool</a>
+        <a href="{{ url_for('logout') }}" class="hover:text-[#E6E8EB]">Log out</a>
+      {% else %}
+        <a href="{{ url_for('redeem') }}" class="hover:text-[#E6E8EB]">Have a code?</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<main class="flex-1">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="ledger-rule mt-16">
+  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-[#8B93A0] flex flex-col sm:flex-row justify-between gap-2">
+    <span>&copy; {{ app_name }}</span>
+    <span>Payments via Razorpay &middot; your Gemini key is used once per report and never stored</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,3271 @@
+[
+  {
+    "raw_string": "Assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Property, plant and equipment",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 2426.37,
+    "previous_year": 2509.41
+  },
+  {
+    "raw_string": "Capital work-in-progress",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 38.35,
+    "previous_year": 81.97
+  },
+  {
+    "raw_string": "Investment property",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 45.94,
+    "previous_year": 47.55
+  },
+  {
+    "raw_string": "Intangible assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 3.39,
+    "previous_year": 5.96
+  },
+  {
+    "raw_string": "Financial assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Investments",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 2066.72,
+    "previous_year": 1801.03
+  },
+  {
+    "raw_string": "Loans",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 45.0,
+    "previous_year": 35.0
+  },
+  {
+    "raw_string": "Other financial assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 15.69,
+    "previous_year": 13.54
+  },
+  {
+    "raw_string": "Deferred tax assets (net)",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 35.71,
+    "previous_year": 29.2
+  },
+  {
+    "raw_string": "Tax assets (net)",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 56.41,
+    "previous_year": 36.11
+  },
+  {
+    "raw_string": "Other non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 19.18,
+    "previous_year": 23.52
+  },
+  {
+    "raw_string": "Total non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 4752.76,
+    "previous_year": 4583.29
+  },
+  {
+    "raw_string": "Current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Inventories",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 1219.92,
+    "previous_year": 1128.9
+  },
+  {
+    "raw_string": "Financial assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Investments",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 1617.02,
+    "previous_year": 1071.12
+  },
+  {
+    "raw_string": "Trade receivables",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 404.74,
+    "previous_year": 379.63
+  },
+  {
+    "raw_string": "Cash and cash equivalents",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 20.79,
+    "previous_year": 38.19
+  },
+  {
+    "raw_string": "Bank balances other than (iii) above",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 70.03,
+    "previous_year": 67.45
+  },
+  {
+    "raw_string": "Loans",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 121.0,
+    "previous_year": 50.0
+  },
+  {
+    "raw_string": "Other financial assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 636.69,
+    "previous_year": 609.46
+  },
+  {
+    "raw_string": "Other current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 97.49,
+    "previous_year": 91.68
+  },
+  {
+    "raw_string": "Total current assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 4187.68,
+    "previous_year": 3436.43
+  },
+  {
+    "raw_string": "Total assets",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 8940.44,
+    "previous_year": 8019.72
+  },
+  {
+    "raw_string": "Equity and liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 24.09,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Other equity",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 4617.14,
+    "previous_year": 3862.46
+  },
+  {
+    "raw_string": "Total equity",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 4641.23,
+    "previous_year": 3886.55
+  },
+  {
+    "raw_string": "Liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Non-current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Borrowings",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 285.83,
+    "previous_year": 712.5
+  },
+  {
+    "raw_string": "Lease liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 0.36,
+    "previous_year": 0.48
+  },
+  {
+    "raw_string": "Other financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 72.8,
+    "previous_year": 72.06
+  },
+  {
+    "raw_string": "Total non-current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 358.99,
+    "previous_year": 785.04
+  },
+  {
+    "raw_string": "Current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Borrowings",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 1060.33,
+    "previous_year": 504.05
+  },
+  {
+    "raw_string": "Lease liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 1.26,
+    "previous_year": 0.65
+  },
+  {
+    "raw_string": "Trade payables",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Trade Payables - Total outstanding dues of micro enterprises and small enterprises",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 20.4,
+    "previous_year": 27.18
+  },
+  {
+    "raw_string": "Trade Payables - Total outstanding dues of creditors other than micro enterprises and small enterprises",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 1761.47,
+    "previous_year": 1565.22
+  },
+  {
+    "raw_string": "Other financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 385.38,
+    "previous_year": 374.32
+  },
+  {
+    "raw_string": "Other current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 71.98,
+    "previous_year": 174.03
+  },
+  {
+    "raw_string": "Provisions",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 581.92,
+    "previous_year": 592.94
+  },
+  {
+    "raw_string": "Tax liabilities (net)",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 57.48,
+    "previous_year": 109.74
+  },
+  {
+    "raw_string": "Total current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 3940.22,
+    "previous_year": 3348.13
+  },
+  {
+    "raw_string": "Total liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 4299.21,
+    "previous_year": 4133.17
+  },
+  {
+    "raw_string": "Total equity and liabilities",
+    "statement": "Balance Sheet",
+    "scope": "STANDALONE",
+    "current_year": 8940.44,
+    "previous_year": 8019.72
+  },
+  {
+    "raw_string": "Revenue from operations",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Sale of goods",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 18119.45,
+    "previous_year": 16859.22
+  },
+  {
+    "raw_string": "Other operating revenues",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 326.37,
+    "previous_year": 436.7
+  },
+  {
+    "raw_string": "Revenue from operations Total",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 18445.82,
+    "previous_year": 17295.92
+  },
+  {
+    "raw_string": "Other income",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 318.44,
+    "previous_year": 250.68
+  },
+  {
+    "raw_string": "Total Income",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 18764.26,
+    "previous_year": 17546.6
+  },
+  {
+    "raw_string": "Expenses:",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Cost of materials consumed",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 9045.68,
+    "previous_year": 8608.64
+  },
+  {
+    "raw_string": "Purchases of stock-in-trade",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 2028.01,
+    "previous_year": 1993.16
+  },
+  {
+    "raw_string": "Changes in inventories of finished goods, work-in-progress and stock- in-trade",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": -21.42,
+    "previous_year": -67.96
+  },
+  {
+    "raw_string": "Employee benefits expense",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 667.47,
+    "previous_year": 554.7
+  },
+  {
+    "raw_string": "Finance costs",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 110.8,
+    "previous_year": 137.1
+  },
+  {
+    "raw_string": "Depreciation and amortisation expense",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 305.34,
+    "previous_year": 284.67
+  },
+  {
+    "raw_string": "Other expenses",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 3335.04,
+    "previous_year": 3143.73
+  },
+  {
+    "raw_string": "Total expenses",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 15470.92,
+    "previous_year": 14654.04
+  },
+  {
+    "raw_string": "Profit before exceptional items and tax",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 3293.34,
+    "previous_year": 2892.56
+  },
+  {
+    "raw_string": "Exceptional items- Expense",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": 24.79
+  },
+  {
+    "raw_string": "Profit before tax",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 3293.34,
+    "previous_year": 2867.77
+  },
+  {
+    "raw_string": "Tax expense :",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Current tax",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 738.13,
+    "previous_year": 730.63
+  },
+  {
+    "raw_string": "Deferred tax (credit) /charge",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": -6.51,
+    "previous_year": 6.42
+  },
+  {
+    "raw_string": "Total tax expenses",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 731.62,
+    "previous_year": 737.05
+  },
+  {
+    "raw_string": "Profit for the year",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 2561.72,
+    "previous_year": 2130.72
+  },
+  {
+    "raw_string": "Other comprehensive loss",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Items that will not be reclassified to profit or loss:",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit (liability)/asset",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": -0.71,
+    "previous_year": -1.77
+  },
+  {
+    "raw_string": "Income-tax relating to items not to be reclassified to profit or loss",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 0.18,
+    "previous_year": 0.46
+  },
+  {
+    "raw_string": "Other comprehensive loss, net of tax",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": -0.53,
+    "previous_year": -1.31
+  },
+  {
+    "raw_string": "Total comprehensive income for the year",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 2561.19,
+    "previous_year": 2129.41
+  },
+  {
+    "raw_string": "Earnings per share (face value of ` 1 each)",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Basic [in `]",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 106.35,
+    "previous_year": 88.46
+  },
+  {
+    "raw_string": "Diluted [in `]",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 106.35,
+    "previous_year": 88.46
+  },
+  {
+    "raw_string": "Weighted average number of equity shares used in computing earnings per share:",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Basic",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 240868296.0,
+    "previous_year": 240868296.0
+  },
+  {
+    "raw_string": "Diluted",
+    "statement": "Profit and Loss",
+    "scope": "STANDALONE",
+    "current_year": 240868296.0,
+    "previous_year": 240868296.0
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 24.09,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 244.98,
+    "previous_year": 244.98
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 3613.09,
+    "previous_year": 3254.06
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 0.43,
+    "previous_year": 0.43
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 3.96,
+    "previous_year": 3.96
+  },
+  {
+    "raw_string": "Remeasurement of the net defined benefit liability - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 1 April",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 3886.55,
+    "previous_year": 3527.52
+  },
+  {
+    "raw_string": "Retained earnings - Dividend [Refer note 19]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": -1806.51,
+    "previous_year": -1770.38
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Dividend [Refer note 19]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": -1806.51,
+    "previous_year": -1770.38
+  },
+  {
+    "raw_string": "Remeasurement of the net defined benefit liability - Other comprehensive loss for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": -0.53,
+    "previous_year": -1.31
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Other comprehensive loss for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": -0.53,
+    "previous_year": -1.31
+  },
+  {
+    "raw_string": "Retained earnings - Transfer to retained earnings from remeasurement of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": -0.53,
+    "previous_year": -1.31
+  },
+  {
+    "raw_string": "Remeasurement of the net defined benefit liability - Transfer to retained earnings from remeasurement of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 0.53,
+    "previous_year": 1.31
+  },
+  {
+    "raw_string": "Retained earnings - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 2561.72,
+    "previous_year": 2130.72
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 2561.72,
+    "previous_year": 2130.72
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 24.09,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 244.98,
+    "previous_year": 244.98
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 4367.77,
+    "previous_year": 3613.09
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 0.43,
+    "previous_year": 0.43
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 3.96,
+    "previous_year": 3.96
+  },
+  {
+    "raw_string": "Remeasurement of the net defined benefit liability - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 31 March",
+    "statement": "Statement of Changes in Equity",
+    "scope": "STANDALONE",
+    "current_year": 4641.23,
+    "previous_year": 3886.55
+  },
+  {
+    "raw_string": "Cash flow from operating activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Profit before tax",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 3293.34,
+    "previous_year": 2867.77
+  },
+  {
+    "raw_string": "Adjustments for :",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Depreciation and amortisation expense",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 305.34,
+    "previous_year": 284.67
+  },
+  {
+    "raw_string": "Net gain on financial asset measured at fair value through statement of profit and loss",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -49.8,
+    "previous_year": -81.31
+  },
+  {
+    "raw_string": "Profit on sale of property, plant and equipment",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -0.84,
+    "previous_year": -1.2
+  },
+  {
+    "raw_string": "Dividend income",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -100.61,
+    "previous_year": -34.67
+  },
+  {
+    "raw_string": "Interest income",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -157.29,
+    "previous_year": -121.28
+  },
+  {
+    "raw_string": "Finance costs",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 110.8,
+    "previous_year": 137.1
+  },
+  {
+    "raw_string": "Operating profit before working capital changes",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 3400.94,
+    "previous_year": 3051.08
+  },
+  {
+    "raw_string": "Net changes in working capital",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Inventories",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -91.02,
+    "previous_year": -53.46
+  },
+  {
+    "raw_string": "Trade receivables",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -25.11,
+    "previous_year": -32.58
+  },
+  {
+    "raw_string": "Other financial assets and other assets",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -16.86,
+    "previous_year": -74.98
+  },
+  {
+    "raw_string": "Trade payables, other financial liabilities, other liabilities and provisions",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 89.3,
+    "previous_year": 160.21
+  },
+  {
+    "raw_string": "Cash generated from operating activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 3357.25,
+    "previous_year": 3050.27
+  },
+  {
+    "raw_string": "Income-tax paid, net of refund",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -810.51,
+    "previous_year": -684.74
+  },
+  {
+    "raw_string": "Net cash generated from operating activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 2546.74,
+    "previous_year": 2365.53
+  },
+  {
+    "raw_string": "Cash flow from investing activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Acquisition of property, plant and equipment, capital work-in-progress and intangible assets",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -175.15,
+    "previous_year": -341.06
+  },
+  {
+    "raw_string": "Proceeds from sale of property, plant and equipment and assets held-for-sale",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 1.46,
+    "previous_year": 4.54
+  },
+  {
+    "raw_string": "Purchase of non-current investments",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -613.24,
+    "previous_year": -937.43
+  },
+  {
+    "raw_string": "Proceeds from sale / redemption of non-current investments",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 213.83,
+    "previous_year": 570.0
+  },
+  {
+    "raw_string": "Purchase / Sale of current investments, net",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -362.38,
+    "previous_year": 347.31
+  },
+  {
+    "raw_string": "Inter- corporate deposits placed",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -181.0,
+    "previous_year": -85.0
+  },
+  {
+    "raw_string": "Inter-corporate deposits redeemed",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 100.0,
+    "previous_year": 460.0
+  },
+  {
+    "raw_string": "Change in other bank balances and fixed deposits",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -3.26,
+    "previous_year": -11.14
+  },
+  {
+    "raw_string": "Interest received",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 136.89,
+    "previous_year": 141.27
+  },
+  {
+    "raw_string": "Dividend received",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 100.61,
+    "previous_year": 34.67
+  },
+  {
+    "raw_string": "Net cash (used) / generated from investing activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -782.24,
+    "previous_year": 183.16
+  },
+  {
+    "raw_string": "Cash flow from financing activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Interest paid",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -105.99,
+    "previous_year": -169.74
+  },
+  {
+    "raw_string": "Principal payment of lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -1.2,
+    "previous_year": -1.37
+  },
+  {
+    "raw_string": "Interest paid on lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -0.07,
+    "previous_year": -0.07
+  },
+  {
+    "raw_string": "Repayment of non-current borrowings",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -191.67,
+    "previous_year": -148.33
+  },
+  {
+    "raw_string": "Repayment of bonus debentures (including unclaimed debenture redemption balance)",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -0.3,
+    "previous_year": -690.56
+  },
+  {
+    "raw_string": "Proceeds from working capital borrowings, net",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 321.28,
+    "previous_year": 26.26
+  },
+  {
+    "raw_string": "Dividends paid",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -1803.95,
+    "previous_year": -1767.54
+  },
+  {
+    "raw_string": "Net cash used in financing activities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -1781.9,
+    "previous_year": -2751.35
+  },
+  {
+    "raw_string": "Net change in cash and cash equivalents",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -17.4,
+    "previous_year": -202.66
+  },
+  {
+    "raw_string": "Cash and cash equivalents at beginning of the year",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 38.19,
+    "previous_year": 240.85
+  },
+  {
+    "raw_string": "Cash and cash equivalents at end of the year",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 20.79,
+    "previous_year": 38.19
+  },
+  {
+    "raw_string": "Cash and cash equivalents at the end of the year [Refer note 14]",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 20.79,
+    "previous_year": 38.19
+  },
+  {
+    "raw_string": "Cash and cash equivalents at the end of the year",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 20.79,
+    "previous_year": 38.19
+  },
+  {
+    "raw_string": "Debt reconciliation statement in accordance with Ind AS 7",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Current borrowings and Current lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Opening balance",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 313.03,
+    "previous_year": 288.12
+  },
+  {
+    "raw_string": "Proceeds from borrowings, net",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 321.89,
+    "previous_year": 24.91
+  },
+  {
+    "raw_string": "Closing balance",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 634.92,
+    "previous_year": 313.03
+  },
+  {
+    "raw_string": "Non - current borrowings, Non-current lease liabilities and Current maturities of long-term debt",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Opening balance",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 904.65,
+    "previous_year": 1751.52
+  },
+  {
+    "raw_string": "Repayment of borrowings, net",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": -191.79,
+    "previous_year": -846.87
+  },
+  {
+    "raw_string": "Closing balance",
+    "statement": "Cash Flow",
+    "scope": "STANDALONE",
+    "current_year": 712.86,
+    "previous_year": 904.65
+  },
+  {
+    "raw_string": "Assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Property, plant and equipment",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 2672.98,
+    "previous_year": 2734.61
+  },
+  {
+    "raw_string": "Capital work-in-progress",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 39.04,
+    "previous_year": 89.2
+  },
+  {
+    "raw_string": "Investment property",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 27.9,
+    "previous_year": 28.9
+  },
+  {
+    "raw_string": "Goodwill",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 143.95,
+    "previous_year": 132.78
+  },
+  {
+    "raw_string": "Other intangible assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 5.09,
+    "previous_year": 7.51
+  },
+  {
+    "raw_string": "Investment in associates and joint venture",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 453.53,
+    "previous_year": 483.62
+  },
+  {
+    "raw_string": "Financial assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Investments",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1517.71,
+    "previous_year": 1270.17
+  },
+  {
+    "raw_string": "Loans",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 25.0,
+    "previous_year": 25.0
+  },
+  {
+    "raw_string": "Other financial assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 30.99,
+    "previous_year": 28.19
+  },
+  {
+    "raw_string": "Deferred tax assets (net)",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 43.01,
+    "previous_year": 36.59
+  },
+  {
+    "raw_string": "Tax assets (net)",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 69.31,
+    "previous_year": 46.26
+  },
+  {
+    "raw_string": "Other non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 25.77,
+    "previous_year": 42.04
+  },
+  {
+    "raw_string": "Total non-current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 5054.28,
+    "previous_year": 4924.87
+  },
+  {
+    "raw_string": "Current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Inventories",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1345.93,
+    "previous_year": 1236.51
+  },
+  {
+    "raw_string": "Financial assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Investments",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1638.52,
+    "previous_year": 1111.64
+  },
+  {
+    "raw_string": "Trade receivables",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 469.21,
+    "previous_year": 448.61
+  },
+  {
+    "raw_string": "Cash and cash equivalents",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 220.0,
+    "previous_year": 132.78
+  },
+  {
+    "raw_string": "Bank balances other than (iii) above",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 132.44,
+    "previous_year": 179.7
+  },
+  {
+    "raw_string": "Loans",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 65.0,
+    "previous_year": 50.0
+  },
+  {
+    "raw_string": "Other financial assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 664.53,
+    "previous_year": 630.46
+  },
+  {
+    "raw_string": "Other current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 142.03,
+    "previous_year": 123.98
+  },
+  {
+    "raw_string": "Total current assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 4677.66,
+    "previous_year": 3913.68
+  },
+  {
+    "raw_string": "Total assets",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 9731.94,
+    "previous_year": 8838.55
+  },
+  {
+    "raw_string": "Equity and liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.09,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Other equity",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 5082.47,
+    "previous_year": 4331.63
+  },
+  {
+    "raw_string": "Equity attributable to equity holders of the parent",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 5106.56,
+    "previous_year": 4355.72
+  },
+  {
+    "raw_string": "Non-controlling interests",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 29.32,
+    "previous_year": 25.6
+  },
+  {
+    "raw_string": "Total equity",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 5135.88,
+    "previous_year": 4381.32
+  },
+  {
+    "raw_string": "Liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Non-current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Borrowings",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 286.11,
+    "previous_year": 712.94
+  },
+  {
+    "raw_string": "Lease liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 19.31,
+    "previous_year": 19.45
+  },
+  {
+    "raw_string": "Other financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 72.95,
+    "previous_year": 72.21
+  },
+  {
+    "raw_string": "Deferred tax liabilities (net)",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1.62,
+    "previous_year": 1.8
+  },
+  {
+    "raw_string": "Provisions",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 36.08,
+    "previous_year": 32.57
+  },
+  {
+    "raw_string": "Total non-current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 416.07,
+    "previous_year": 838.97
+  },
+  {
+    "raw_string": "Current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Borrowings",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1071.72,
+    "previous_year": 511.83
+  },
+  {
+    "raw_string": "Lease liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 3.14,
+    "previous_year": 2.29
+  },
+  {
+    "raw_string": "Trade payables",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Trade Payables - Total outstanding dues of micro enterprises and small enterprises",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 21.41,
+    "previous_year": 27.83
+  },
+  {
+    "raw_string": "Trade Payables - Total outstanding dues of creditors other than micro enterprises and small enterprises",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 1875.0,
+    "previous_year": 1724.4
+  },
+  {
+    "raw_string": "Other financial liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 442.81,
+    "previous_year": 429.34
+  },
+  {
+    "raw_string": "Other current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 88.67,
+    "previous_year": 194.7
+  },
+  {
+    "raw_string": "Provisions",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 594.52,
+    "previous_year": 604.66
+  },
+  {
+    "raw_string": "Tax liabilities (net)",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 82.72,
+    "previous_year": 123.21
+  },
+  {
+    "raw_string": "Total current liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 4179.99,
+    "previous_year": 3618.26
+  },
+  {
+    "raw_string": "Total liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 4596.06,
+    "previous_year": 4457.23
+  },
+  {
+    "raw_string": "Total equity and liabilities",
+    "statement": "Balance Sheet",
+    "scope": "CONSOLIDATED",
+    "current_year": 9731.94,
+    "previous_year": 8838.55
+  },
+  {
+    "raw_string": "Revenue from operations",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Sale of goods",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 18858.21,
+    "previous_year": 17535.02
+  },
+  {
+    "raw_string": "Other operating revenues",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 293.38,
+    "previous_year": 407.65
+  },
+  {
+    "raw_string": "Revenue from operations Total",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 19151.59,
+    "previous_year": 17942.67
+  },
+  {
+    "raw_string": "Other income",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 224.03,
+    "previous_year": 227.09
+  },
+  {
+    "raw_string": "Total income",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 19375.62,
+    "previous_year": 18169.76
+  },
+  {
+    "raw_string": "Expenses",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Cost of materials consumed",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 10350.02,
+    "previous_year": 9859.45
+  },
+  {
+    "raw_string": "Purchases of stock-in-trade",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 805.23,
+    "previous_year": 809.35
+  },
+  {
+    "raw_string": "Changes in inventories of finished goods, work-in-progress and stock-in-trade",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": -22.37,
+    "previous_year": -64.75
+  },
+  {
+    "raw_string": "Employee benefits expense",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 823.8,
+    "previous_year": 704.59
+  },
+  {
+    "raw_string": "Finance costs",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 112.76,
+    "previous_year": 138.8
+  },
+  {
+    "raw_string": "Depreciation and amortisation expense",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 336.83,
+    "previous_year": 313.34
+  },
+  {
+    "raw_string": "Other expenses",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3650.48,
+    "previous_year": 3446.88
+  },
+  {
+    "raw_string": "Total expenses",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 16056.75,
+    "previous_year": 15207.66
+  },
+  {
+    "raw_string": "Profit before share of loss of associates & joint venture",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3318.87,
+    "previous_year": 2962.1
+  },
+  {
+    "raw_string": "Share of loss in associates & joint venture using equity method",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": -30.09,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Profit before exceptional items and tax (V+VI)",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3288.78,
+    "previous_year": 2951.36
+  },
+  {
+    "raw_string": "Exceptional item - Expense",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 24.79
+  },
+  {
+    "raw_string": "Profit before tax (VII-VIII)",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3288.78,
+    "previous_year": 2926.57
+  },
+  {
+    "raw_string": "Tax expense :",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Current tax",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 758.37,
+    "previous_year": 741.68
+  },
+  {
+    "raw_string": "Deferred tax (credit) / charge",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": -6.6,
+    "previous_year": 7.03
+  },
+  {
+    "raw_string": "Total tax expenses",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 751.77,
+    "previous_year": 748.71
+  },
+  {
+    "raw_string": "Profit for the year (IX-X)",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2537.01,
+    "previous_year": 2177.86
+  },
+  {
+    "raw_string": "Other comprehensive (loss) / income",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Items that will not be reclassified to profit or loss:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.68,
+    "previous_year": -1.92
+  },
+  {
+    "raw_string": "Income-tax relating to items not to be reclassified to profit or loss",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.17,
+    "previous_year": 0.5
+  },
+  {
+    "raw_string": "Items that will be reclassified subsequently to profit or loss:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.57,
+    "previous_year": 7.68
+  },
+  {
+    "raw_string": "Other comprehensive income, net of tax",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.06,
+    "previous_year": 6.26
+  },
+  {
+    "raw_string": "Total Comprehensive income for the year (XI+XII)",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2561.07,
+    "previous_year": 2184.12
+  },
+  {
+    "raw_string": "Profit/(loss) attributable to:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Owners of the Company",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2533.49,
+    "previous_year": 2178.73
+  },
+  {
+    "raw_string": "Non-controlling interests",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3.52,
+    "previous_year": -0.87
+  },
+  {
+    "raw_string": "Profit for the year",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2537.01,
+    "previous_year": 2177.86
+  },
+  {
+    "raw_string": "Other comprehensive income/(loss) attributable to:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Owners of the Company",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 23.86,
+    "previous_year": 5.85
+  },
+  {
+    "raw_string": "Non-controlling interests",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.2,
+    "previous_year": 0.41
+  },
+  {
+    "raw_string": "Other comprehensive income for the year",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.06,
+    "previous_year": 6.26
+  },
+  {
+    "raw_string": "Total comprehensive income/(loss) attributable to:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Owners of the Company",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2557.35,
+    "previous_year": 2184.58
+  },
+  {
+    "raw_string": "Non-controlling interests",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 3.72,
+    "previous_year": -0.46
+  },
+  {
+    "raw_string": "Total comprehensive income for the year",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 2561.07,
+    "previous_year": 2184.12
+  },
+  {
+    "raw_string": "Earnings per share (face value of \b 1 each)",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Basic [in \b]",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 105.18,
+    "previous_year": 90.45
+  },
+  {
+    "raw_string": "Diluted [in \b]",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 105.18,
+    "previous_year": 90.45
+  },
+  {
+    "raw_string": "Weighted average number of equity shares used in computing earnings per share:",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Basic",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 240868296.0,
+    "previous_year": 240868296.0
+  },
+  {
+    "raw_string": "Diluted",
+    "statement": "Profit and Loss",
+    "scope": "CONSOLIDATED",
+    "current_year": 240868296.0,
+    "previous_year": 240868296.0
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 244.98
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4036.44
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 0.63
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 3.96
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 45.69
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4355.79
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 25.53
+  },
+  {
+    "raw_string": "Total - Balance as at 1 April 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4381.32
+  },
+  {
+    "raw_string": "Equity share capital - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.37,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 23.86,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.2,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.06,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.07,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.07,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.07,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Transfer from Foreign currency translation reserve",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -1806.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -1806.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": -1806.51,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 2533.49,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 2533.49,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 3.52,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 2537.01,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.09,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 244.98,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 4762.91,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.63,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 3.96,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 69.99,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 5106.56,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 29.32,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Balance as at 31 March 2026",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": 5135.88,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Balance as at 1 April 2024",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -1.42
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 7.27
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 5.85
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 0.41
+  },
+  {
+    "raw_string": "Total - Other comprehensive (loss) / income for the year, net of tax",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 6.26
+  },
+  {
+    "raw_string": "Equity share capital - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -1.42
+  },
+  {
+    "raw_string": "Capital reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 1.42
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Transfer to retained earnings from remeasurements of the net defined benefit liability",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Equity share capital - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -1770.38
+  },
+  {
+    "raw_string": "Capital reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -1770.38
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total - Dividend [Refer note 21]",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -1770.38
+  },
+  {
+    "raw_string": "Equity share capital - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital reserve - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 1.56
+  },
+  {
+    "raw_string": "Total - Increase in share capital of non-controlling interest",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 1.56
+  },
+  {
+    "raw_string": "Equity share capital - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Securities premium - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Retained earnings - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 2178.73
+  },
+  {
+    "raw_string": "Capital reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Capital redemption reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 2178.73
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": -0.87
+  },
+  {
+    "raw_string": "Total - Profit for the year",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 2177.86
+  },
+  {
+    "raw_string": "Equity share capital - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 24.09
+  },
+  {
+    "raw_string": "Securities premium - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 244.98
+  },
+  {
+    "raw_string": "Retained earnings - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4036.44
+  },
+  {
+    "raw_string": "Capital reserve - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 0.63
+  },
+  {
+    "raw_string": "Capital redemption reserve - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 3.96
+  },
+  {
+    "raw_string": "Remeasurements of the net defined benefit liability - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Foreign currency translation reserve - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 45.69
+  },
+  {
+    "raw_string": "Total equity attributable to equity holders of the Company - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4355.79
+  },
+  {
+    "raw_string": "Attributable to non-controlling interest - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 25.53
+  },
+  {
+    "raw_string": "Total - Balance as at 31 March 2025",
+    "statement": "Statement of Changes in Equity",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 4381.32
+  },
+  {
+    "raw_string": "Cash flow from operating activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Profit before tax and share of loss of associates and joint venture and after exceptional items",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 3318.87,
+    "previous_year": 2937.31
+  },
+  {
+    "raw_string": "Adjustments for :",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Depreciation and amortisation expense",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 336.83,
+    "previous_year": 313.34
+  },
+  {
+    "raw_string": "Net gain on financial asset measured at fair value through Statement of Profit and Loss",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -49.83,
+    "previous_year": -81.35
+  },
+  {
+    "raw_string": "Profit on sale of property, plant and equipment",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -1.04,
+    "previous_year": -1.24
+  },
+  {
+    "raw_string": "Interest income from financial assets carried at amortised cost",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -163.01,
+    "previous_year": -132.8
+  },
+  {
+    "raw_string": "Finance costs",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 112.76,
+    "previous_year": 138.8
+  },
+  {
+    "raw_string": "Operating profit before working capital changes",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 3554.58,
+    "previous_year": 3174.06
+  },
+  {
+    "raw_string": "Net changes in working capital",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Inventories",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -105.05,
+    "previous_year": -54.33
+  },
+  {
+    "raw_string": "Trade receivables",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -12.95,
+    "previous_year": -53.44
+  },
+  {
+    "raw_string": "Other financial assets and other assets",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -28.05,
+    "previous_year": -88.65
+  },
+  {
+    "raw_string": "Trade payables, other financial liabilities, other liabilities and provisions",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 24.81,
+    "previous_year": 202.19
+  },
+  {
+    "raw_string": "Cash generated from operating activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 3433.34,
+    "previous_year": 3179.83
+  },
+  {
+    "raw_string": "Income-tax paid, net of refund",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -821.74,
+    "previous_year": -689.21
+  },
+  {
+    "raw_string": "Net cash generated from operating activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 2611.6,
+    "previous_year": 2490.62
+  },
+  {
+    "raw_string": "Cash flow from investing activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Acquisition of property, plant and equipment, capital work-in-progress and other intangible assets",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -205.57,
+    "previous_year": -374.85
+  },
+  {
+    "raw_string": "Proceeds from sale of property, plant and equipment and assets held-for-sale",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 2.12,
+    "previous_year": 4.58
+  },
+  {
+    "raw_string": "Purchase of non-current investments",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -613.24,
+    "previous_year": -945.05
+  },
+  {
+    "raw_string": "Proceeds from sale / redemption of non-current investments",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 254.35,
+    "previous_year": 572.16
+  },
+  {
+    "raw_string": "Purchase / sale of current investments, net",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -362.35,
+    "previous_year": 347.31
+  },
+  {
+    "raw_string": "Inter-corporate deposits placed",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -115.0,
+    "previous_year": -75.0
+  },
+  {
+    "raw_string": "Inter-corporate deposits redeemed",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 100.0,
+    "previous_year": 460.0
+  },
+  {
+    "raw_string": "Changes in other bank balances and fixed deposits",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 39.15,
+    "previous_year": -74.08
+  },
+  {
+    "raw_string": "Interest received",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 143.27,
+    "previous_year": 151.36
+  },
+  {
+    "raw_string": "Net cash used in / generated from investing activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -757.27,
+    "previous_year": 66.43
+  },
+  {
+    "raw_string": "Cash flow from financing activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Principal payment of lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -2.77,
+    "previous_year": -3.58
+  },
+  {
+    "raw_string": "Interest paid on lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.84,
+    "previous_year": -0.89
+  },
+  {
+    "raw_string": "Interest paid",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -107.18,
+    "previous_year": -170.62
+  },
+  {
+    "raw_string": "Proceeds from working capital borrowing, net*",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 324.18,
+    "previous_year": 26.26
+  },
+  {
+    "raw_string": "Repayment of bonus debentures (including Unclaimed debenture redemption balance)",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -0.3,
+    "previous_year": -690.56
+  },
+  {
+    "raw_string": "Proceeds from non-current borrowings",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 0.16,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Repayment of non-current borrowings",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -191.92,
+    "previous_year": -148.53
+  },
+  {
+    "raw_string": "Contribution from non-controlling interest",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": 1.56
+  },
+  {
+    "raw_string": "Dividends paid",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -1803.95,
+    "previous_year": -1767.54
+  },
+  {
+    "raw_string": "Net cash used in financing activities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -1782.62,
+    "previous_year": -2753.9
+  },
+  {
+    "raw_string": "Net change in cash and cash equivalents",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 71.71,
+    "previous_year": -196.85
+  },
+  {
+    "raw_string": "Effect of exchange rate changes on cash and cash equivalents",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 15.89,
+    "previous_year": 2.64
+  },
+  {
+    "raw_string": "Cash and cash equivalents at beginning of the year (net of bank overdraft)",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 125.24,
+    "previous_year": 319.45
+  },
+  {
+    "raw_string": "Cash and cash equivalents at end of the year (net of bank overdraft)",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 212.84,
+    "previous_year": 125.24
+  },
+  {
+    "raw_string": "Cash and cash equivalents [Refer note 15]",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 220.0,
+    "previous_year": 132.78
+  },
+  {
+    "raw_string": "Bank overdraft [Refer note 22]",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -7.16,
+    "previous_year": -7.54
+  },
+  {
+    "raw_string": "Cash and cash equivalents at end of the year (net of bank overdraft)",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 212.84,
+    "previous_year": 125.24
+  },
+  {
+    "raw_string": "Note:",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Debt reconciliation statement in accordance with Ind AS 7",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Current borrowings and lease liabilities",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Opening balance",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 322.21,
+    "previous_year": 293.09
+  },
+  {
+    "raw_string": "Proceeds from borrowings, net",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 325.62,
+    "previous_year": 29.12
+  },
+  {
+    "raw_string": "Closing balance",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 647.83,
+    "previous_year": 322.21
+  },
+  {
+    "raw_string": "Non-current borrowings, non-current lease liabilities and current maturity of non- current borrowings",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": null,
+    "previous_year": null
+  },
+  {
+    "raw_string": "Opening balance",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 924.3,
+    "previous_year": 1771.87
+  },
+  {
+    "raw_string": "Repayment of borrowings, net",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": -191.85,
+    "previous_year": -847.57
+  },
+  {
+    "raw_string": "Closing balance",
+    "statement": "Cash Flow",
+    "scope": "CONSOLIDATED",
+    "current_year": 732.45,
+    "previous_year": 924.3
+  }
+]

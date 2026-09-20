@@ -88,9 +88,11 @@ except ImportError:
         return {}
 
 
-GEMINI_KEY   = os.environ.get("GEMINI_API_KEY")
 FORCE_REFRESH = False
-gemini = google_genai.Client(api_key=GEMINI_KEY)
+# NOTE: no module-level client / env-var key here on purpose.
+# Each call site (web app or CLI) passes its own api_key explicitly,
+# so a multi-tenant server never shares one Gemini key across users
+# and the key never sits in a global that outlives a single request.
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -785,10 +787,10 @@ def _build_extraction_response_schema():
     )
 
 
-def _generate_with_retry(model, contents, config, max_attempts=4, base_delay=5):
+def _generate_with_retry(client, model, contents, config, max_attempts=4, base_delay=5):
     for attempt in range(max_attempts):
         try:
-            return gemini.models.generate_content(model=model, contents=contents, config=config)
+            return client.models.generate_content(model=model, contents=contents, config=config)
         except Exception as exc:
             msg = str(exc)
             if not any(m in msg for m in ("503", "UNAVAILABLE", "overloaded")) or attempt == max_attempts - 1:
@@ -798,8 +800,19 @@ def _generate_with_retry(model, contents, config, max_attempts=4, base_delay=5):
             time.sleep(delay)
 
 
-def call_gemini(text: str) -> list:
+def call_gemini(text: str, api_key: str) -> list:
+    """
+    api_key is required and used ONLY for this call: a fresh client is built
+    here, used, and discarded. Never stored on a module/global, never logged,
+    never written to disk — safe for a multi-tenant server where each request
+    carries its own caller-supplied Gemini key.
+    """
     from google.genai import types
+
+    if not api_key:
+        raise ValueError("call_gemini: api_key is required (no env-var fallback).")
+
+    client = google_genai.Client(api_key=api_key)
 
     unit_label = detect_reporting_unit(text)
     unit_note  = f"All numbers in the source are in {unit_label} — do not convert to any other unit"
@@ -817,6 +830,7 @@ def call_gemini(text: str) -> list:
     for i, chunk in enumerate(chunks):
         print(f"  Sending chunk {i+1}/2 to Gemini...")
         response = _generate_with_retry(
+            client,
             _GEMINI_MODEL,
             _EXTRACTION_PROMPT_TEMPLATE.format(chunk=chunk, unit_note=unit_note),
             config,
@@ -1297,7 +1311,9 @@ def build_excel(df, output_path: str, unit_label: str = "₹ Lakh"):
 # MAIN PIPELINE
 # ─────────────────────────────────────────────────────────────────────────────
 
-def extract_financials(pdf_path: str, output_xlsx: str = "financials.xlsx"):
+def extract_financials(pdf_path: str, output_xlsx: str = "financials.xlsx", api_key: str = None):
+    if not api_key:
+        raise ValueError("extract_financials: api_key is required.")
     pdf_stem = os.path.splitext(os.path.basename(pdf_path))[0]
 
     # ── Hardened cache key ────────────────────────────────────────────────────
@@ -1318,7 +1334,7 @@ def extract_financials(pdf_path: str, output_xlsx: str = "financials.xlsx"):
             all_data = json.load(f)
     else:
         print("Extracting text from PDF...")
-        all_data = call_gemini(pdf_text)
+        all_data = call_gemini(pdf_text, api_key=api_key)
         with open(cache_file, "w") as f:
             json.dump(all_data, f, indent=2)
 
@@ -1404,4 +1420,4 @@ if __name__ == "__main__":
     extract_core_financial_statements(args.input_pdf, intermediate_pdf, gemini_key)
 
     print(f"\n── Step 2: Parsing & building Excel → {args.output_xlsx}")
-    extract_financials(intermediate_pdf, args.output_xlsx)
+    extract_financials(intermediate_pdf, args.output_xlsx, api_key=gemini_key)

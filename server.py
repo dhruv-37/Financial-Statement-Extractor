@@ -144,7 +144,7 @@ def _run_job(job_id, pdf_path, ticker):
         print(f"── Step 2: Parsing & building Excel → {output_xlsx}")
         with _JOBS_LOCK:
             _JOBS[job_id]["stage_idx"] = 1
-        extract_financials(trimmed_pdf, output_xlsx)
+        extract_financials(trimmed_pdf, output_xlsx, api_key=gemini_key)
 
         with _JOBS_LOCK:
             _JOBS[job_id]["trimmed_pdf"] = trimmed_pdf

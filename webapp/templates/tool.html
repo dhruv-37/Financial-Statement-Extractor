@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="max-w-xl mx-auto px-6 py-16">
+  <h1 class="font-display text-3xl">Run an extraction</h1>
+  <p class="mt-2 text-sm text-[#8B93A0]">
+    Access code <span class="font-mono text-[#C9A227]">{{ access_code }}</span> — keep it, it also unlocks the tool on any other device.
+  </p>
+
+  <form id="runForm" class="mt-10 space-y-6">
+    <div>
+      <label class="block text-sm text-[#C7CBD1] mb-2">Gemini API key</label>
+      <div class="relative">
+        <input
+          id="apiKey" type="password" name="gemini_api_key" required
+          autocomplete="off" spellcheck="false"
+          placeholder="AIza..."
+          class="field font-mono rounded-md px-4 py-3 w-full pr-16 placeholder:text-[#5A606B]">
+        <button type="button" id="toggleKey"
+          class="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-[#8B93A0] hover:text-[#E6E8EB] px-2 py-1">
+          Show
+        </button>
+      </div>
+      <p class="mt-2 text-xs text-[#8B93A0]">
+        Used only for this report, sent straight to Google, never written to disk or logs.
+        Get a free key at
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="underline decoration-white/20 hover:text-[#E6E8EB]">aistudio.google.com</a>.
+      </p>
+    </div>
+
+    <div>
+      <label class="block text-sm text-[#C7CBD1] mb-2">Ticker / company code</label>
+      <input
+        type="text" name="ticker" placeholder="TCS" maxlength="20"
+        class="field rounded-md px-4 py-3 w-full placeholder:text-[#5A606B]">
+    </div>
+
+    <div>
+      <label class="block text-sm text-[#C7CBD1] mb-2">Annual report PDF</label>
+      <label for="pdfInput"
+        class="field rounded-md px-4 py-8 w-full flex flex-col items-center justify-center gap-2 cursor-pointer border-dashed hover:border-white/30">
+        <span id="fileLabel" class="text-sm text-[#8B93A0]">Click to choose a PDF (max 40 MB)</span>
+      </label>
+      <input id="pdfInput" type="file" name="pdf" accept="application/pdf" required class="hidden">
+    </div>
+
+    <button id="runBtn" type="submit" class="btn-gold rounded-md px-5 py-3.5 w-full">
+      Extract financials
+    </button>
+
+    <div id="status" class="text-sm text-[#8B93A0] hidden"></div>
+    <div id="errBox" class="text-sm text-red-400 hidden"></div>
+  </form>
+</section>
+
+<script>
+document.getElementById('toggleKey').addEventListener('click', () => {
+  const el = document.getElementById('apiKey');
+  const btn = document.getElementById('toggleKey');
+  const show = el.type === 'password';
+  el.type = show ? 'text' : 'password';
+  btn.textContent = show ? 'Hide' : 'Show';
+});
+
+document.getElementById('pdfInput').addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  document.getElementById('fileLabel').textContent = f ? f.name : 'Click to choose a PDF (max 40 MB)';
+});
+
+document.getElementById('runForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('runBtn');
+  const status = document.getElementById('status');
+  const errBox = document.getElementById('errBox');
+  errBox.classList.add('hidden');
+  status.classList.remove('hidden');
+  status.textContent = "Reading auditor's signature pages…";
+  btn.disabled = true;
+  btn.classList.add('opacity-60', 'cursor-not-allowed');
+
+  const stages = [
+    "Reading auditor's signature pages…",
+    "Classifying financial statements…",
+    "Parsing figures into the workbook…",
+  ];
+  let stageIdx = 0;
+  const stageTimer = setInterval(() => {
+    stageIdx = Math.min(stageIdx + 1, stages.length - 1);
+    status.textContent = stages[stageIdx];
+  }, 12000);
+
+  try {
+    const form = new FormData(e.target);
+    const res = await fetch("{{ url_for('tool_run') }}", { method: "POST", body: form });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || "Something went wrong.");
+    }
+
+    const blob = await res.blob();
+    const disposition = res.headers.get('Content-Disposition') || '';
+    const match = disposition.match(/filename="?([^"]+)"?/);
+    const filename = match ? match[1] : 'report.xlsx';
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+
+    status.textContent = "Done — your download has started.";
+    document.getElementById('apiKey').value = "";
+  } catch (err) {
+    errBox.textContent = err.message;
+    errBox.classList.remove('hidden');
+    status.classList.add('hidden');
+  } finally {
+    clearInterval(stageTimer);
+    btn.disabled = false;
+    btn.classList.remove('opacity-60', 'cursor-not-allowed');
+  }
+});
+</script>
+{% endblock %}

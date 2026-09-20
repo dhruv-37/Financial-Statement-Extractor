@@ -57,7 +57,7 @@ def main():
     extract_core_financial_statements(args.pdf_path, trimmed_pdf, gemini_key)
 
     print(f"\n\u2500\u2500 Step 2: Parsing & building Excel \u2192 {output_xlsx}")
-    extract_financials(trimmed_pdf, output_xlsx)
+    extract_financials(trimmed_pdf, output_xlsx, api_key=gemini_key)
     # extract_financials writes "<output_xlsx-without-ext>_taxonomy.json" itself;
     # that path is exactly `taxonomy_json` computed above.
 
