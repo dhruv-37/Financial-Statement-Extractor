@@ -1,0 +1,10 @@
+pymupdf
+pdfplumber
+pypdf
+langchain-core
+google-genai
+pandas
+openpyxl
+rapidfuzz
+flask
+dotenv
