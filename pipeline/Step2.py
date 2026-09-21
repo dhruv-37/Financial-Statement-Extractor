@@ -930,6 +930,217 @@ from openpyxl.utils import get_column_letter
 # EXCEL BUILDER  —  visual layer only; all algebra/math logic is untouched
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _ratio_ref(cell_map: dict, sheet_name: str, node_name: str, col: str) -> Optional[str]:
+    """Cross-sheet cell reference for a taxonomy node, or None if that
+    line item wasn't found on that sheet (caller must handle gracefully)."""
+    row = get_row_by_node(cell_map, node_name)
+    if row is None:
+        return None
+    return f"'{sheet_name}'!{col}{row}"
+
+
+# Each entry: (category, name, unit, needs[list of (node, "PL"/"BS")],
+#              formula_fn(refs, col) -> excel formula string,
+#              definition -> human-readable line items used)
+# `refs` is a dict {node_name: cell_ref_string} for every node in `needs`.
+_RATIO_DEFINITIONS = [
+    ("Profitability", "Gross Profit Margin", "%",
+     [("REVENUE_FROM_OPERATIONS", "PL"), ("COST_OF_MATERIALS", "PL")],
+     lambda r: f"=IFERROR(({r['REVENUE_FROM_OPERATIONS']}-{r['COST_OF_MATERIALS']})/{r['REVENUE_FROM_OPERATIONS']}*100,\"N/A\")",
+     "(Revenue from Operations − Cost of Materials) ÷ Revenue from Operations × 100"),
+
+    ("Profitability", "EBITDA Margin", "%",
+     [("EBITDA", "PL"), ("REVENUE_FROM_OPERATIONS", "PL")],
+     lambda r: f"=IFERROR({r['EBITDA']}/{r['REVENUE_FROM_OPERATIONS']}*100,\"N/A\")",
+     "EBITDA ÷ Revenue from Operations × 100"),
+
+    ("Profitability", "Net Profit Margin", "%",
+     [("PROFIT_FOR_THE_YEAR", "PL"), ("REVENUE_FROM_OPERATIONS", "PL")],
+     lambda r: f"=IFERROR({r['PROFIT_FOR_THE_YEAR']}/{r['REVENUE_FROM_OPERATIONS']}*100,\"N/A\")",
+     "Profit for the Year ÷ Revenue from Operations × 100"),
+
+    ("Profitability", "Return on Equity (ROE)", "%",
+     [("PROFIT_FOR_THE_YEAR", "PL"), ("TOTAL_EQUITY", "BS")],
+     lambda r: f"=IFERROR({r['PROFIT_FOR_THE_YEAR']}/{r['TOTAL_EQUITY']}*100,\"N/A\")",
+     "Profit for the Year ÷ Total Equity × 100"),
+
+    ("Profitability", "Return on Assets (ROA)", "%",
+     [("PROFIT_FOR_THE_YEAR", "PL"), ("TOTAL_ASSETS", "BS")],
+     lambda r: f"=IFERROR({r['PROFIT_FOR_THE_YEAR']}/{r['TOTAL_ASSETS']}*100,\"N/A\")",
+     "Profit for the Year ÷ Total Assets × 100"),
+
+    ("Profitability", "Return on Capital Employed (ROCE)", "%",
+     [("PROFIT_BEFORE_TAX", "PL"), ("FINANCE_COSTS", "PL"),
+      ("TOTAL_ASSETS", "BS"), ("TOTAL_CURRENT_LIABILITIES", "BS")],
+     lambda r: (f"=IFERROR(({r['PROFIT_BEFORE_TAX']}+{r['FINANCE_COSTS']})"
+                f"/({r['TOTAL_ASSETS']}-{r['TOTAL_CURRENT_LIABILITIES']})*100,\"N/A\")"),
+     "(Profit Before Tax + Finance Costs) ÷ (Total Assets − Total Current Liabilities) × 100"),
+
+    ("Liquidity", "Current Ratio", "x",
+     [("TOTAL_CURRENT_ASSETS", "BS"), ("TOTAL_CURRENT_LIABILITIES", "BS")],
+     lambda r: f"=IFERROR({r['TOTAL_CURRENT_ASSETS']}/{r['TOTAL_CURRENT_LIABILITIES']},\"N/A\")",
+     "Total Current Assets ÷ Total Current Liabilities"),
+
+    ("Liquidity", "Quick Ratio", "x",
+     [("TOTAL_CURRENT_ASSETS", "BS"), ("INVENTORIES", "BS"), ("TOTAL_CURRENT_LIABILITIES", "BS")],
+     lambda r: f"=IFERROR(({r['TOTAL_CURRENT_ASSETS']}-{r['INVENTORIES']})/{r['TOTAL_CURRENT_LIABILITIES']},\"N/A\")",
+     "(Total Current Assets − Inventories) ÷ Total Current Liabilities"),
+
+    ("Leverage", "Total Liabilities to Equity", "x",
+     [("TOTAL_LIABILITIES", "BS"), ("TOTAL_EQUITY", "BS")],
+     lambda r: f"=IFERROR({r['TOTAL_LIABILITIES']}/{r['TOTAL_EQUITY']},\"N/A\")",
+     "Total Liabilities ÷ Total Equity  (proxy — the source doesn't break out borrowings separately from other liabilities)"),
+
+    ("Leverage", "Interest Coverage Ratio", "x",
+     [("PROFIT_BEFORE_TAX", "PL"), ("FINANCE_COSTS", "PL")],
+     lambda r: f"=IFERROR(({r['PROFIT_BEFORE_TAX']}+{r['FINANCE_COSTS']})/{r['FINANCE_COSTS']},\"N/A\")",
+     "(Profit Before Tax + Finance Costs) ÷ Finance Costs"),
+
+    ("Efficiency", "Asset Turnover", "x",
+     [("REVENUE_FROM_OPERATIONS", "PL"), ("TOTAL_ASSETS", "BS")],
+     lambda r: f"=IFERROR({r['REVENUE_FROM_OPERATIONS']}/{r['TOTAL_ASSETS']},\"N/A\")",
+     "Revenue from Operations ÷ Total Assets"),
+
+    ("Efficiency", "Receivable Days", "days",
+     [("TRADE_RECEIVABLES", "BS"), ("REVENUE_FROM_OPERATIONS", "PL")],
+     lambda r: f"=IFERROR({r['TRADE_RECEIVABLES']}/{r['REVENUE_FROM_OPERATIONS']}*365,\"N/A\")",
+     "Trade Receivables ÷ Revenue from Operations × 365"),
+
+    ("Efficiency", "Inventory Days", "days",
+     [("INVENTORIES", "BS"), ("COST_OF_MATERIALS", "PL")],
+     lambda r: f"=IFERROR({r['INVENTORIES']}/{r['COST_OF_MATERIALS']}*365,\"N/A\")",
+     "Inventories ÷ Cost of Materials × 365"),
+]
+
+
+def build_ratios_sheet(wb, master_cell_map: dict, prefix: str) -> None:
+    """
+    Adds a "<prefix> - Ratios" sheet of commonly-used research ratios.
+
+    Every value is a live Excel formula referencing the exact cells on the
+    P&L / Balance Sheet sheets above (column D shows the line items used in
+    plain English) — nothing here is a hardcoded number, and nothing here
+    is a fresh LLM call: it's pure arithmetic over what Step2 already
+    extracted and verified.
+
+    A ratio is skipped (row simply omitted) if a line item it needs wasn't
+    found on the source sheet — printed as a warning, same pattern as the
+    EPS cross-referencing check above, rather than writing a misleading
+    "N/A" for something that was never computable to begin with.
+    """
+    pl_name = f"{prefix} - P&L"
+    bs_name = f"{prefix} - Balance Sheet"
+    if pl_name not in wb.sheetnames and bs_name not in wb.sheetnames:
+        return  # nothing to build a ratio sheet from for this segment at all
+
+    pl_cm = master_cell_map.get(pl_name, {})
+    bs_cm = master_cell_map.get(bs_name, {})
+
+    sheet_name = f"{prefix} - Ratios"
+    ws = wb.create_sheet(sheet_name)
+    ws.sheet_view.showGridLines = True
+    ws.column_dimensions["A"].width = 34
+    ws.column_dimensions["B"].width = 14
+    ws.column_dimensions["C"].width = 14
+    ws.column_dimensions["D"].width = 70
+
+    C_NAVY, C_SLATE_BLUE, C_ICE_BLUE = "1B365D", "4A5B78", "F0F4F8"
+    C_WHITE, C_HAIRLINE, C_SLATE_TEXT = "FFFFFF", "E5E7E9", "2C3E50"
+    TITLE_FILL  = PatternFill("solid", start_color=C_NAVY,       end_color=C_NAVY)
+    HEADER_FILL = PatternFill("solid", start_color=C_SLATE_BLUE, end_color=C_SLATE_BLUE)
+    SECTION_FILL = PatternFill("solid", start_color=C_ICE_BLUE,  end_color=C_ICE_BLUE)
+    TITLE_FONT  = Font(name="Segoe UI", bold=True, color=C_WHITE, size=15)
+    HEADER_FONT = Font(name="Segoe UI", bold=True, color=C_WHITE, size=10)
+    SECTION_FONT = Font(name="Segoe UI", bold=True, color=C_SLATE_TEXT, size=10)
+    NORMAL_FONT = Font(name="Segoe UI", color=C_SLATE_TEXT, size=10)
+    ITALIC_FONT = Font(name="Segoe UI", italic=True, color="6B7684", size=9)
+    CENTER = Alignment(horizontal="center", vertical="center")
+    LEFT   = Alignment(horizontal="left",   vertical="center", indent=1, wrap_text=False)
+    LEFT_WRAP = Alignment(horizontal="left", vertical="center", indent=1, wrap_text=True)
+    RIGHT  = Alignment(horizontal="right",  vertical="center")
+    _hair = Side(style="thin", color=C_HAIRLINE)
+    BORDER = Border(left=_hair, right=_hair, top=_hair, bottom=_hair)
+
+    ws.row_dimensions[1].height = 42
+    ws.merge_cells("A1:D1")
+    ws["A1"] = sheet_name
+    ws["A1"].font, ws["A1"].fill, ws["A1"].alignment = TITLE_FONT, TITLE_FILL, CENTER
+
+    ws.row_dimensions[2].height = 26
+    for col_letter, label in zip(["A", "B", "C", "D"],
+                                  ["Ratio", "FY25", "FY24", "Line items used (this workbook)"]):
+        cell = ws[f"{col_letter}2"]
+        cell.value, cell.font, cell.fill, cell.alignment = label, HEADER_FONT, HEADER_FILL, CENTER
+
+    row = 3
+    prev_category = None
+    skipped = []
+
+    for category, name, unit, needs, formula_fn, definition in _RATIO_DEFINITIONS:
+        refs = {}
+        missing = []
+        for node, kind in needs:
+            cm, sname = (pl_cm, pl_name) if kind == "PL" else (bs_cm, bs_name)
+            if sname not in wb.sheetnames:
+                missing.append(f"{node} (sheet {sname} not built)")
+                continue
+            ref_b = _ratio_ref(cm, sname, node, "B")
+            ref_c = _ratio_ref(cm, sname, node, "C")
+            if ref_b is None or ref_c is None:
+                missing.append(node)
+                continue
+            refs[node] = ref_b  # placeholder, replaced per-column below
+
+        if missing:
+            skipped.append(f"{name} ({prefix}) — missing: {', '.join(missing)}")
+            continue
+
+        if category != prev_category:
+            ws.row_dimensions[row].height = 20
+            ws.merge_cells(f"A{row}:D{row}")
+            c = ws[f"A{row}"]
+            c.value, c.font, c.fill, c.alignment = category, SECTION_FONT, SECTION_FILL, LEFT
+            for cl in ["A", "B", "C", "D"]:
+                ws[f"{cl}{row}"].border = BORDER
+            row += 1
+            prev_category = category
+
+        ws.row_dimensions[row].height = 20
+        label = f"{name} ({unit})"
+        a = ws[f"A{row}"]
+        a.value, a.font, a.alignment, a.border = label, NORMAL_FONT, LEFT, BORDER
+
+        for col_letter in ["B", "C"]:
+            refs_col = {
+                node: _ratio_ref(
+                    (pl_cm if kind == "PL" else bs_cm),
+                    (pl_name if kind == "PL" else bs_name),
+                    node, col_letter,
+                )
+                for node, kind in needs
+            }
+            cell = ws[f"{col_letter}{row}"]
+            cell.value = formula_fn(refs_col)
+            cell.font, cell.alignment, cell.border = NORMAL_FONT, RIGHT, BORDER
+            if unit == "%":
+                cell.number_format = '0.0"%"'
+            elif unit == "days":
+                cell.number_format = '0" days"'
+            else:
+                cell.number_format = '0.00"x"'
+
+        d = ws[f"D{row}"]
+        d.value, d.font, d.alignment, d.border = definition, ITALIC_FONT, LEFT_WRAP, BORDER
+        row += 1
+
+    ws.freeze_panes = "A3"
+
+    if skipped:
+        print(f"\nℹ️  Ratios skipped on {sheet_name} (a required line item wasn't found):")
+        for s in skipped:
+            print(f"  - {s}")
+
+
 def build_excel(df, output_path: str, unit_label: str = "₹ Lakh"):
 
     # ── Palette ───────────────────────────────────────────────────────────────
@@ -1302,6 +1513,17 @@ def build_excel(df, output_path: str, unit_label: str = "₹ Lakh"):
         print("\n⚠️  EPS cross-referencing issues:")
         for msg in eps_failures:
             print(f"  - {msg}")
+
+    # =========================================================================
+    # RATIO SHEET — predefined research ratios, computed as live Excel
+    # formulas that reference the exact cells on the statement sheets above
+    # (so anyone opening the workbook can click a ratio and see precisely
+    # which line items and cells it comes from — not just a static number).
+    # Runs after the algebra engine, but that's fine: Excel recalculates the
+    # whole formula chain on open regardless of the order cells were written.
+    # =========================================================================
+    for prefix in ["Standalone", "Consolidated"]:
+        build_ratios_sheet(wb, master_cell_map, prefix)
 
     wb.save(output_path)
     print(f"\n✅  Saved math-verified spreadsheet → {output_path}")
