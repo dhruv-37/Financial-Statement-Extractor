@@ -51,17 +51,25 @@ def _noop_summary(_bullets) -> None:
     pass
 
 
-def _generate_summary_bg(trimmed_pdf_path: str, summary_cb: SummaryCB) -> None:
-    """Runs in a background thread, uses the SITE OWNER'S key (never the
-    visitor's), and never raises — worst case it calls back with None."""
+def _generate_summary_bg(
+    trimmed_pdf_path: str, api_key: str, summary_cb: SummaryCB, progress_cb: ProgressCB
+) -> None:
+    """Runs in a background thread using the VISITOR'S OWN key (the same
+    one used for the real extraction), and never raises — worst case it
+    calls back with None."""
+    progress_cb(60, "Generating quick-take summary…")
     try:
         import fitz
         doc = fitz.open(trimmed_pdf_path)
         text = "\n".join(doc[i].get_text("text") for i in range(len(doc)))
         doc.close()
-        bullets = owner_summary.generate(text)
+        bullets = owner_summary.generate(text, api_key)
     except Exception:  # noqa: BLE001
         bullets = None
+    if bullets:
+        progress_cb(60, "Quick-take summary ready.")
+    else:
+        progress_cb(60, "Quick-take summary skipped.")
     summary_cb(bullets)
 
 
@@ -111,11 +119,13 @@ def run(
             )
             progress_cb(55, "Statements found — parsing figures with Gemini…")
 
-            # Bonus "quick take" using the OWNER's key, in parallel with the
-            # real extraction below (which uses the VISITOR's key) — never
-            # allowed to slow down or fail the paid part.
+            # Bonus "quick take" using the VISITOR's own key, in parallel
+            # with the real extraction below — never allowed to slow down
+            # or fail the paid part.
             summary_thread = threading.Thread(
-                target=_generate_summary_bg, args=(trimmed_pdf, summary_cb), daemon=True,
+                target=_generate_summary_bg,
+                args=(trimmed_pdf, api_key, summary_cb, progress_cb),
+                daemon=True,
             )
             summary_thread.start()
 

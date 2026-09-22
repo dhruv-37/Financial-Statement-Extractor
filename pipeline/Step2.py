@@ -712,7 +712,7 @@ def detect_reporting_unit(text: str) -> str:
     return detected
 
 
-_GEMINI_MODEL: str = "gemini-2.5-flash"
+_GEMINI_MODEL: str = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SCHEMA-DRIVEN EXTRACTION

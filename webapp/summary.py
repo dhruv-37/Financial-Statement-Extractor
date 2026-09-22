@@ -1,13 +1,10 @@
 """
 summary.py — an optional "quick take" (3 plain-English bullets) generated
-with the SITE OWNER'S OWN Gemini key while a visitor's paid extraction runs
-on THEIR key. Two separate keys, two separate purposes:
+using the VISITOR'S OWN Gemini key — the same key used for the real
+extraction (Step2). There is no separate owner key anymore.
 
-  - visitor's key -> the real extraction (Step2), what they paid for
-  - owner's key   -> this bonus summary only, small + bounded cost to you
-
-This is never load-bearing. If it fails, is empty, or the owner's key hits
-its quota, it silently returns None — the main extraction is completely
+This is never load-bearing. If it fails, is empty, or the key hits its
+quota, it silently returns None — the main extraction is completely
 unaffected either way.
 
 Auto-lock / auto-reset
@@ -34,8 +31,7 @@ import store
 
 log = logging.getLogger("arx.summary")
 
-OWNER_API_KEY = os.environ.get("OWNER_GEMINI_API_KEY", "")
-_MODEL = "gemini-2.5-flash-lite"   # cheap + fast — this is a bonus, not the product
+_MODEL = "gemini-3.1-flash-lite"   # cheap + fast — this is a bonus, not the product
 _DEFAULT_LOCK_SECONDS = 24 * 60 * 60
 _MAX_INPUT_CHARS = 15_000           # keep the bonus call small and cheap
 
@@ -44,9 +40,13 @@ def is_locked() -> bool:
     return time.time() < store.get_summary_lock()
 
 
-def generate(pdf_text: str) -> list[str] | None:
-    """Best-effort. Returns up to 3 bullet strings, or None."""
-    if not OWNER_API_KEY:
+def generate(pdf_text: str, api_key: str) -> list[str] | None:
+    """Best-effort. Returns up to 3 bullet strings, or None.
+
+    api_key is the caller-supplied (visitor's) Gemini key — the same one
+    used for the real extraction. No separate owner key is used anymore.
+    """
+    if not api_key:
         return None
     if is_locked():
         return None
@@ -65,7 +65,7 @@ def generate(pdf_text: str) -> list[str] | None:
     )
 
     try:
-        client = google_genai.Client(api_key=OWNER_API_KEY)
+        client = google_genai.Client(api_key=api_key)
         response = client.models.generate_content(
             model=_MODEL,
             contents=prompt,
